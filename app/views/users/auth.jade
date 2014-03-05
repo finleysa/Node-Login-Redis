@@ -9,10 +9,34 @@ html(class='no-js', lang='en')
     link(rel='stylesheet', href='/css/foundation.css')
     link(rel='stylesheet', href='/less/app.css')
     script(src='/js/vendor/modernizr.js')
+
   body
-    .row
-      .small-12.columns
-        h1=title
+    .row.grey
+      .small-6.columns
+        h1 Register Here
+        form(action='/register', method='post', enctype='multipart/form-data')
+          fieldset
+            .row
+              .small-12.columns
+                input(type='text' name='email' required placeholder='email address')
+                input(type='password' name='password' required placeholder='password')
+            .row
+              .small-6.columns
+                button.small.radius Register
+              .small-6.columns
+                h3= error
+      .small-6.columns
+        h1 Sign In
+        form(action='/login', method='post', enctype='multipart/form-data')
+          fieldset
+            .row
+              .small-12.columns
+                input(type='text' name='email' required placeholder='email address')
+                input(type='password' name='password' required placeholder='password')
+            .row
+              .small-6.columns
+                button.small.radius Login
+              .small-6.columns
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.js')
