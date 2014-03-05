@@ -17,7 +17,7 @@ exports.register = function(req, res){
       if(user._id){
         res.redirect('/');
       }else{
-        res.render('users/auth', {title:'Register / Login'});
+        res.render('users/auth', {title:'Register / Login', error:'e-mail already registered'});
       }
     });
   });

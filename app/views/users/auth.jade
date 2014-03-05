@@ -11,6 +11,9 @@ html(class='no-js', lang='en')
     script(src='/js/vendor/modernizr.js')
 
   body
+    .row
+      .small-12.columns
+        .space
     .row.grey
       .small-6.columns
         h1 Register Here
@@ -31,7 +34,7 @@ html(class='no-js', lang='en')
           fieldset
             .row
               .small-12.columns
-                input(type='text' name='email' required placeholder='email address')
+                input(type='email' name='email' required placeholder='email address')
                 input(type='password' name='password' required placeholder='password')
             .row
               .small-6.columns
