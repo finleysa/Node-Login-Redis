@@ -1,0 +1,11 @@
+extends ../shared/template
+
+block content
+  .row
+    .small-12.columns
+      .box
+        h1.space Your Notes!
+        a(href='/notes/new'): button.right.alert Create Note
+        ul
+          each note in notes
+            li: a(href='/notes/'+note._id) #{note.title}:

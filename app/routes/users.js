@@ -17,7 +17,7 @@ exports.register = function(req, res){
       if(user._id){
         res.redirect('/');
       }else{
-        res.render('users/auth', {title:'Register / Login', error:'e-mail already registered'});
+        res.render('users/auth', {title:'Register / Login', error:'E-mail already registered'});
       }
     });
   });
@@ -29,6 +29,7 @@ exports.login = function(req, res){
       req.session.regenerate(function(){
         req.session.userId = user._id.toString();
         req.session.save(function(){
+          // cookie now has Redis session ID (req.session.userId)
           res.redirect('/');
         });
       });
@@ -37,5 +38,11 @@ exports.login = function(req, res){
         res.render('users/auth', {title:'Register / Login'});
       });
     }
+  });
+};
+
+exports.logout = function(req, res){
+  req.session.destroy(function(){
+    res.redirect('/auth');
   });
 };

@@ -45,7 +45,6 @@ describe('users', function(){
         expect(res.text).to.include('Register / Login');
         done();
       });
-     // .expect(200, done);
     });
   });
 
@@ -82,6 +81,7 @@ describe('users', function(){
       .field('password', '1234')
       .end(function(err, res){
         expect(res.status).to.equal(302);
+        expect(res.headers['set-cookie']).to.have.length(1);
         done();
       });
     });
